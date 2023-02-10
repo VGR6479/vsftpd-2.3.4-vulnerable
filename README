@@ -30,32 +30,35 @@ Installation
 
 Please see the INSTALL file.
 
-Prerequisites:
+1. Prerequisites:
 sudo apt-get install build-essential
 
-Build binary file:
-1. clone this repository
-2. cd vsftpd
-3. chmod 777 -R .
-4. make
+2. Build binary file:
+clone this repository
+cd vsftpd-2.3.4-vulnerable
+chmod 777 -R .
+make
 
-Requirements:
-1. useradd nobody
-2. mkdir /usr/share/empty
+3. Requirements:
+useradd nobody
+mkdir /usr/share/empty
 
-Installation:
-1. sudo cp vsftpd /usr/local/sbin/vsftpd
-2. sudo cp vsftpd.8 /usr/local/man/man8
-3. sudo cp vsftpd.conf.5 /usr/local/man/man5
-4. sudo cp vsftpd.conf /etc
+4. Installation:
+sudo cp vsftpd /usr/local/sbin/vsftpd
+sudo cp vsftpd.8 /usr/local/man/man8
+sudo cp vsftpd.conf.5 /usr/local/man/man5
+sudo cp vsftpd.conf /etc
 
-Enable Anonymous Login:
-1. mkdir /var/ftp/
-2. useradd -d /var/ftp ftp
-3. chown root:root /var/ftp
-4. chmod og-w /var/ftp
+5. Run vsftpd service:
+/usr/local/sbin/vsftpd &
 
-Enable Local Login:
+6. Enable Anonymous Login:
+mkdir /var/ftp/
+useradd -d /var/ftp ftp
+chown root:root /var/ftp
+chmod og-w /var/ftp
+
+7. Enable Local Login:
 edit /etc/vsftpd.conf
 local_enable=YES
 
